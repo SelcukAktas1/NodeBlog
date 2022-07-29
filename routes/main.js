@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const Post = require("../models/post");
 
 router.get("/", (req, res) => {
     console.log(req.url);
@@ -17,8 +18,9 @@ router.get("/index", (req, res) => {
 });
 
 router.get("/blog", (req, res) => {
-    console.log(req.url);
-    res.render("site/blog");
+    Post.find({}).then((posts) => {});
+    //console.log(req.url);
+    res.render("site/blog", { posts: posts });
 });
 
 router.get("/contact", (req, res) => {
@@ -36,10 +38,4 @@ router.get("/register", (req, res) => {
     res.render("site/register");
 });
 
-router.get("/posts/new", (req, res) => {
-    console.log(req.url);
-    res.render("site/addPost");
-});
-
-
-module.exports = router
+module.exports = router;
