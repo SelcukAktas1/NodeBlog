@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Posts = require("../models/post");
+const Posts = require("../models/Post");
 
 router.get("/new", (req, res) => {
     console.log(req.url);

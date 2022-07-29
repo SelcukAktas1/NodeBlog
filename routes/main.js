@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Post = require("../models/post");
+const Post = require("../models/Post");
 
 router.get("/", (req, res) => {
     console.log(req.url);
@@ -18,11 +18,10 @@ router.get("/index", (req, res) => {
 });
 
 router.get("/blog", (req, res) => {
-    Post.find({}).then((posts) => {});
-    //console.log(req.url);
-    res.render("site/blog", { posts: posts });
+    Post.find({}).then(posts => {
+    res.render("site/blog", {posts:posts})
+})
 });
-
 router.get("/contact", (req, res) => {
     console.log(req.url);
     res.render("site/contact");
