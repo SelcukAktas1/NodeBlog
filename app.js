@@ -5,8 +5,11 @@ const PORT = process.env.PORT || 3000;
 const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const fileUpload = require("express-fileupload");
 
 mongoose.connect("mongodb://localhost:27017/NodeBlog");
+
+app.use(fileUpload());
 
 app.use(express.static("public"));
 
